@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lauren Corbin Goodman, PhD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../minimal.css" >
+    <link rel="stylesheet" type="text/css" href="../minimal-inputs.css" >
+    <link rel="stylesheet" type="text/css" href="../laren.css" >
+  </head>
+  <body>
+    <h1>Lauren Corbin Goodman, PhD</h1>
+    <p>Recent Biomedical Engineering PhD graduate with a passion for modeling complex biochemical reactions.</p>
+    <button class="fit" 
+      onclick="window.location.href = '../index.html';">
+      home
+    </button>
+    <div id="flow_cytometry">
+      <h2>Precise Enumeration with Flow Cytometry</h2>
+      <h3>Background</h3>
+      <p>
+        We wanted to see if an E. coli cell could complete division without a fully assembled Z ring. To do this, I used a temperature sensitive E. coli strain, JFL101. At 30 degrees, this strain behaves wild type. At 42 degrees, the Z ring disassembles. This disassembly happens within a minute and can be triggered with a rapid temperature shift. 
+      </p>
+      <h3>Experimental Setup</h3>
+      <p>
+        For this experiment, I grew cells at 30 degrees. I then diluted the cells into a 42 degree water bath. I immediately took out an aliquot and fixed the cells in a formaldehyde/glutaraldehyde solution. This almost instantly halts growth and preserves the outer membrane. I repeated this fixation over time to obtain a pseudo time-course. I then counted the cells in fixed samples to create a growth curve over time. 
+      </p>
+      
+      <h3>Optimization of Temperature Jump Protocol</h3>
+      <h4>Finding Appropriate Software</h4>
+      <p>Duke provides access to flow cytometry analysis software, but we only have a few copies. I didn't want to be tied to an on campus computer lab to do my analysis, so I sought an open source flow cytometry analysis package. After trying several, I found <a href="https://eyurtsev.github.io/FlowCytometryTools/">FlowCytometryTools</a> by  Jonathan Friedman and Eugene Yurtsev. I wrote a <a href="https://gitlab.oit.duke.edu/lcc33/flow-analysis/-/blob/master/flowCytometryToolsGui.py">custom Python script </a>to automatically read and gate FCS files. From this, I created a CSV file that I used for analyzing the data in R. </p>
+      <figure>
+        <img src='../media/fcs_output.png', width=800>
+      </figure>
+
+      <h4>Calculating the Proper Cell Density</h4>
+      <p>I counted cell fixed cells with a flow cytometer. Duke Cancer Institute has several BD FACSCanto II systems. These maintain quite a consistent flow rate, so they can be used to precisely count cells. I counted cells for a set amount of time, usually 1 to 3 minutes, and compared the relative increase in count over time.</p>
+      <p>To succeed in this experiment, I needed to determine the proper density of cells to produce an accurate cell count. If I counted cells that were not dense enough, the system's noise would overwhelm the true count. If I counted the cells at a density that was too high, the cells would overlap while going through the flow cytometer and would be under counted.</p>
+      <p>To find the best density of cells, I created a one-fold serial dilution and counted the cells for each dilution. I found the region where a one-fold dilution would result in a one-fold decrease in cell count. The code can be found <a href="https://gitlab.oit.duke.edu/lcc33/flow-analysis/-/tree/master/experiments/2019/5-16-19">on GitLab.</a></p>
+      <figure>
+        <img src='../media/serial_dilution.png', width=600>
+      </figure>
+
+      <h3>Skills Developed</h3>
+      <ul>
+        <li>Python3</li>
+      </ul>
+    </div>
+  </body>
+
+</html>

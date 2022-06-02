@@ -11,25 +11,68 @@
   <body>
     <h1>Lauren Corbin Goodman, PhD</h1>
     <p>Recent Biomedical Engineering PhD graduate with a passion for modeling complex biochemical reactions.</p>
-    
+    <button class="fit" 
+      onclick="window.location.href = '../index.html';">
+      home
+    </button>
     <div id="treadmill_model">
       <h2>FtsZ Treadmill Model</h2>
       <h3>Background</h3>
       <p>
         FtsZ is a bacterial cell division protein. It lines up head to tail to form single stranded protofilaments (PFs). These PFs gather at the mid cell to produce the Z ring. The Z ring constricts to divide the cell into two daughter cells.
       </p>
-      <img src='../media/cell_cycle_ftsz.png', width=400>
+      <figure>
+        <img src='../media/cell_cycle_ftsz.png', width=400>
+      </figure>
+      
       <p>
         Over the past two decades, it has become increasingly clear that FtsZ treadmills. Treadmilling is when subunits primarily add to one side and subtract from the other side of a PF. This produces an overall net movement of the PF, but individual subunits remain in place.
       </p>
-      <img src='../media/treadmilling.png', width=400>
+      <figure>
+        <img src="../media/treadmilling.png"
+          width="400"
+          alt="Diagram of PFs treadmilling." />
+        <figurecaption>Diagram of PFs treadmilling over time. Subunits primarily add on the right and subtract from the left.</figurecaption>
+      </figure>
+      
       <p>
-        It was not immediately clear how a single stranded PF could attain such polarity to directionally treadmill. I developed a computational model that showed that directional treadmilling can be obtained with 1) a conformational switch within individual FtsZ subunits and 2) stochastic GTP hydrolysis. Furthermore, nucleation of new PFs can also be explained with this conformational switch.
+        It was not clear how a single stranded PF could attain polarity needed for treadmilling. I developed a computational model that showed that directional treadmilling can be obtained with 1) a conformational switch within individual FtsZ subunits and 2) stochastic GTP hydrolysis. Furthermore, this same conformational switch drives nucleation to produce cooperative assembly.
       </p>
+      <h3>Model Overview</h3>
+      <p>Below is a diagram of the basic reactions included in this model. I used Gillespie's algorithm with partial equilibrium to model this reaction. I wrote the model in Matlab.</p>
+      
+      <img src='../media/treadmilling_model.png', width=600>
+      <p>
+        The <a href="https://github.com/laurcor55/TreadmillModel">model</a> and <a href="https://github.com/laurcor55/TreadmillModelAnalysis">related analysis</a> can be accessed on Github. This work was published in the <a href="https://www.sciencedirect.com/science/article/pii/S0006349520305543">Biophysical Journal in August 2020</a>. 
+      </p>
+      <h3>Commentaries and Podium Talks</h3>
+
+      <h3>Skills Developed</h3>
       <ul>
-        <li>Info</li>
-          <li>Applied skills: Matlab, unit testing, git/version control, stochastic simulations, performance profiling, parameter fitting, stochastic gradient descent, user interface design</li>
-        </li>
+        <li>Matlab - Wrote Gillespie algorithm in Matlab. </li>
+          <ul>
+            <li>Developed a <a href="https://github.com/laurcor55/TreadmillModel/tree/master/%40RunApp">user interface.</a><img src="../media/treadmilling_app.png" width=800></li>
+            <li>Programmatically implemented the <a href="https://github.com/laurcor55/TreadmillModel/blob/master/lib/runExperiment.m">Gillespie algorithm</a></li>
+            <li>Used Matlab Profiler to optimize algorithm to run quickly with limited computational resources.</li>
+            <li>Wrote <a href="https://github.com/laurcor55/TreadmillModel/tree/master/tests">unit tests </a>to confirm all computations and actions.</li>
+          </ul>
+        <li>R programming language </li>
+          <ul>
+            <li>Prepared <a href="https://github.com/laurcor55/TreadmillModelAnalysis/blob/main/overviewPlot.r">figures </a>for publication.</li>
+            <li>Wrote <a href="https://github.com/laurcor55/TreadmillModelAnalysis/blob/main/figurePlotter.r">custom library</a> to quickly plot model results.</li>
+            <li>Wrote functions to plot <a href="https://github.com/laurcor55/TreadmillModelAnalysis/blob/main/pfMixing/pfMixingSweepPlot.r">multidimensional parameter sweeps.</a><img src="../media/pf_mixing_sweep.png" width=600></li>
+          </ul>
+        <li>Python programming language</li>
+          <ul>
+            <li>Wrote scripts to <a href="https://github.com/laurcor55/TreadmillModelAnalysis/blob/main/experimental/extractPlotData.py">extract data from images </a>of previously published figures.</li>
+          </ul>
+        <li>Wrote<a href="https://github.com/laurcor55/TreadmillModel/blob/master/README.md"> documentation </a>appropriate for non-programmers.</li>
+        <li>Git/version control</li>
+        <li>Parameter fitting for a large parameter space</li>
+          <ul>
+            <li>Designed <a href="https://github.com/laurcor55/TreadmillModelAnalysis/tree/main/gradient/lossFunctions">loss functions </a>for a variety of experimental results.</li>
+            <li>Utilized <a href="https://github.com/laurcor55/TreadmillModelAnalysis/blob/main/gradient/gradient.m">stochastic gradient descent </a>to optimize tens of parameters</li>
+          </ul>
       </ul>
     </div>
   </body>
