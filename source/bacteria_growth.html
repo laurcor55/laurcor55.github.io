@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lauren Corbin Goodman, PhD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../minimal.css" >
+    <link rel="stylesheet" type="text/css" href="../minimal-inputs.css" >
+    <link rel="stylesheet" type="text/css" href="../laren.css" >
+  </head>
+  <body>
+    <h1>Lauren Corbin Goodman, PhD</h1>
+    <p>Recent Biomedical Engineering PhD graduate with a passion for modeling complex biochemical reactions.</p>
+    <button class="fit" 
+      onclick="window.location.href = '../index.html';">
+      home
+    </button>
+    <div id="bacteria_growth">
+      <h2>Bacteria growth with parallel architecture in C</h2>
+      <h3>Background</h3>
+      <p>
+        This is from the final project for BME590 course taught by Amanda Randles at Duke University. I did this in collaboration with Helena Ma. For this project, we needed to parallelize a previously developed biomedical computational model. For the sake of learning, it was not allowed to be embarrassingly parallel. We decided to create our own biomedical computational model for bacterial growth and antibiotic resistance.
+      </p>
+      
+      <h3>Model Overview</h3>
+      <p>Our bacterial growth model was inspired by Conway's game of life. In short, we set up a 2d grid with each pixel representing a potential habitat for a single bacterium. We seeded the grid sparsely with bacteria. When a bacterium divided, the offspring would inhabit a pixel neighboring the parent.</p>
+
+      <p>In addition, we added antibiotic to the bacteria grid. The antibiotic could diffuse over the grid. There were two phenotypes of bacteria -- antibiotic resistant and wild type. The antibiotic resistant bacteria could degrade the antibiotic, producing a localized antibiotic sink. The wild type bacteria was harmed by the antibiotic, but could benefit from living near the antibiotic resistant bacteria and its sink. </p>
+
+      <p>We used a Monte Carlo approach in C to implement the base model. 
+        <pre>
+        Import cell_type; \\
+        Seed antibiotic_conc;
+        while (t_current  &lt; t_total){
+          antibiotic_diffusion(antibiotic_conc);
+          antibiotic_degradation(antibiotic_conc, cell_type);
+        
+          cell_death(cell_type, antibiotic_conc);
+        
+          cell_switching(cell_type);
+          
+          cell_division(cell_type);
+        
+          t_current += dt;
+        }
+      </pre></p>
+      
+
+      <h3>Skills Developed</h3>
+      <ul>
+        <li>Python3</li>
+      </ul>
+    </div>
+  </body>
+
+</html>
