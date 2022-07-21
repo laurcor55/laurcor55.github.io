@@ -25,6 +25,14 @@
   font-size: larger;
 }
 
+.footer {
+  border-top: solid thick rgb(91, 110, 91);
+  font-size:x-large;
+  text-align: center;
+  margin-top: 50px;
+  padding-top:20px;
+}
+
 ul.header {
   margin:0;
   padding:0;
